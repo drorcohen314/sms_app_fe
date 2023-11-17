@@ -1,0 +1,10 @@
+<div class="message">
+    <div class="message-title">
+        <p class="recipient">{{ messageData.recipient }}</p>
+        <p>{{ messageData.created_at }}</p>
+    </div>
+    <div class="message-box">
+        <p>{{ messageData.content }}</p>
+        <p *ngIf="messageData.sent">sent ✔️</p>
+    </div>
+</div>

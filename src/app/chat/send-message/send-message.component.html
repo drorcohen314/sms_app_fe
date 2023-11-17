@@ -1,0 +1,19 @@
+<div>
+    NEW MESSAGE: 
+    <form>
+        <label for="recipient">To:</label><br>
+        <input type="text" id="recipient" name="recipient" [(ngModel)]="recipient"><br>
+        <label for="content">Content:</label><br>
+        <textarea type="text" id="content" name="content" [(ngModel)]="content" maxlength="250"rows="10"></textarea>
+        <div>
+            <button type="button"
+            (click)="send_message()">
+            Send
+            </button>
+            <button type="button"
+            (click)="clear()">
+            Clear
+            </button>
+        </div>
+    </form>
+</div>
