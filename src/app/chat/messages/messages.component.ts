@@ -6,6 +6,7 @@ import { UserService } from '../../user.service'
 import { Subscription } from 'rxjs';
 import { Message } from '../../message';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-messages',
@@ -21,7 +22,7 @@ export class MessagesComponent {
   constructor(private messagesService: MessagesService, private userService: UserService) {}
 
   ngOnInit(): void {
-    this.socket$ = webSocket('ws://localhost:3000/cable');
+    this.socket$ = webSocket(environment.websocketUrl);
 
     const identifier = JSON.stringify({ channel: 'MessageStatusChannel', key: this.userService.get_key })
     this.socket$.subscribe(

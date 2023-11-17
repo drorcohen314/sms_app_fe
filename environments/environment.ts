@@ -1,6 +1,5 @@
 export const environment = {
-    production: false,
-    connection: 'http',
-    serverIP: '127.0.0.1',
-    serverPort: 3000,
+    production: true,
+    serverUrl: 'https://sms-app-ror-be-a79f14ef7769.herokuapp.com',
+    websocketUrl: 'wss://sms-app-ror-be-a79f14ef7769.herokuapp.com/cable'
   };
