@@ -27,7 +27,7 @@ export class MessagesComponent {
     this.socket$.subscribe(
       {
         next: (message) =>{
-          if (message.identifier === identifier) {
+          if (message.identifier === identifier && message.message) {
             this.messagesService.set_message_status(message.message.id)
           }
         },

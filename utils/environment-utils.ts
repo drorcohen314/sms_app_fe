@@ -1,4 +1,4 @@
 import { environment } from "../environments/environment"
 export const getBaseUrl = () => {
-    return environment.connection + '://' + environment.serverIP + ':' + environment.serverPort
+    return environment.apiUrl || environment.connection + '://' + environment.serverIP + ':' + environment.serverPort
 }
