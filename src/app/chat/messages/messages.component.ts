@@ -23,11 +23,12 @@ export class MessagesComponent {
 
   ngOnInit(): void {
     this.socket$ = webSocket(environment.websocketUrl);
-
+    console.log(this.socket$)
     const identifier = JSON.stringify({ channel: 'MessageStatusChannel', key: this.userService.get_key })
     this.socket$.subscribe(
       {
         next: (message) =>{
+          console.log(message)
           if (message.identifier === identifier && message.message) {
             this.messagesService.set_message_status(message.message.id)
           }
@@ -42,7 +43,7 @@ export class MessagesComponent {
     );
 
     this.socket$.next({ command: 'subscribe', identifier: JSON.stringify({ channel: 'MessageStatusChannel', key: this.userService.get_key }) });
-
+    
     this.messagesSubscription = this.messagesService.messages$.subscribe((messages) => {
       this.messages = messages;
     });
